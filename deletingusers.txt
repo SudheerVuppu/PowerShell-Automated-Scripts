@@ -1,0 +1,13 @@
+for deletion
+<<Remove-Item -Path "C:\St\*P8*" -Recurse>>
+<<Remove-Item C:\Users\St\*P8*>>
+ 
+for getting host name\
+<<$env:COMPUTERNAME>>
+ 
+# Get users
+$users = Get-ChildItem -Path "C:\Users"
+ 
+# Loop through users and delete the file
+$users | ForEach-Object {
+    Remove-Item -Path "C:\Users\$($_.Name)\AppData\Local\File.exe" -Force
