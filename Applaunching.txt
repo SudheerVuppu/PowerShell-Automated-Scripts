@@ -1,0 +1,19 @@
+$ie = new-object -com "InternetExplorer.Application"
+
+$ie.navigate("http://google.com/")
+
+$ie.visible = $true
+
+while($ie.busy) {sleep 1}
+
+$result1=$ie.document.getElementById("gbwa")
+
+$result1.click()
+
+while ($ie.Busy -eq $true){Start-Sleep -seconds 2}
+
+$result2=$ie.document.getElementById("gbwa")
+
+$result2.click()
+
+$ie.quit()
