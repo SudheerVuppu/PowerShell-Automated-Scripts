@@ -11,3 +11,4 @@ $users = Get-ChildItem -Path "C:\Users"
 # Loop through users and delete the file
 $users | ForEach-Object {
     Remove-Item -Path "C:\Users\$($_.Name)\AppData\Local\File.exe" -Force
+gwmi win32_userprofile | where {$_.SID -eq $UserSID} | foreach {$_.Delete()    
